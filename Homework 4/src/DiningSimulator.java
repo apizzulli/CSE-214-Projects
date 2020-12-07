@@ -1,9 +1,8 @@
-import com.sun.deploy.xml.CustomParser;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-import sun.awt.image.ImageWatched;
-import sun.plugin2.message.FocusTransitionEventMessage;
-
-import java.lang.reflect.Array;
+/*
+Anthony Pizzulli
+111990335
+R08
+ */
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ArrayList;
@@ -25,21 +24,23 @@ public class DiningSimulator {
     private int customersServed;
     private int profit;
     public static int avgTimeToReduce = 5;
+    static double avgCusTime = 0.0;
 
+    /**
+     * Brief: This method is used to generate a random integer in the given range (inclusive)
+     * @param minVal int: The minimum value of the random integer
+     * @param maxVal int: The maximum value of the random integer
+     * @return int: Randomly generated integer
+     */
     private static int randInt(int minVal, int maxVal){
         int r = (maxVal-minVal)+1;
         return (int)(Math.random()*r)+minVal;
     }
 
-    public double simulate(){
-        double d = 0.0;
-        return d;
-    }
-
-
+    /**
+     * Brief: This is the main method for the DiningSimulator, which handles user input and drives the simulation
+     */
     public static void main(String[] args) {
-
-
         Scanner in = new Scanner(System.in);
         do{
             System.out.println( "Starting simulator...");
@@ -219,9 +220,7 @@ public class DiningSimulator {
 
 
             }
-            double avgCusTime = (double)s.totalServiceTime/(double)s.customersServed;
-
-
+            avgCusTime = (double)s.totalServiceTime/(double)s.customersServed;
 
             System.out.println("\nTotal customer time: " + s.totalServiceTime + " minutes");
             System.out.println("Total customers served: " + s.customersServed);
@@ -235,4 +234,11 @@ public class DiningSimulator {
         System.out.println("Program terminating normally...");
     }
 
+    /**
+     * Brief: This method is intended to be used to simulate the Restaurant given the user inputted values
+     * @return double: The average time spent at the Restaurant by a Customer
+     */
+    public double simulate(){
+        return avgCusTime;
+    }
 }
